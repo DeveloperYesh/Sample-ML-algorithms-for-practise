@@ -1,0 +1,14 @@
+from sklearn. neighbors import KNeighborsClassifier
+from sklearn. model_selection import train_test_split
+from sklearn. datasets  import load_iris
+#loading data
+irisData=load_iris()
+#create features and target arrays
+X=irisData.data
+y=irisData.target
+#split into training and test set
+X_train,X_test,y_train,y_test=train_test_split(X,y,test_size=0.2,random_state=42)
+Knn = KNeighborsClassifier(n_neighbors=7)
+Knn.fit(X_train,y_train)
+#predict on data set which model has not seen before 
+print(Knn.predict(X_test))
